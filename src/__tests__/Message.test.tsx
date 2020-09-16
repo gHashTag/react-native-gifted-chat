@@ -9,12 +9,12 @@ describe('Message component', () => {
     const tree = createComponentWithContext(
       <Message
         key='123'
-        user={{ _id: 1 }}
+        user={{ id: 1 }}
         currentMessage={{
-          _id: 1,
+          id: 1,
           text: 'test',
           createdAt: 1554744013721,
-          user: { _id: 1 },
+          user: { id: 1 },
         }}
       />,
     ).toJSON()
@@ -24,7 +24,7 @@ describe('Message component', () => {
 
   it('should NOT render <Message />', () => {
     const tree = createComponentWithContext(
-      <Message key='123' user={{ _id: 1 }} currentMessage={null} />,
+      <Message key='123' user={{ id: 1 }} currentMessage={null} />,
     ).toJSON()
 
     expect(tree).toMatchSnapshot()
@@ -34,12 +34,12 @@ describe('Message component', () => {
     const tree = createComponentWithContext(
       <Message
         key='123'
-        user={{ _id: 1 }}
+        user={{ id: 1 }}
         currentMessage={{
-          _id: 1,
+          id: 1,
           text: 'test',
           createdAt: 1554744013721,
-          user: { _id: 1 },
+          user: { id: 1 },
         }}
         showUserAvatar
       />,
@@ -52,13 +52,13 @@ describe('Message component', () => {
     const tree = createComponentWithContext(
       <Message
         key='123'
-        user={{ _id: 1 }}
+        user={{ id: 1 }}
         currentMessage={{
-          _id: 1,
+          id: 1,
           text: 'test',
           createdAt: 1554744013721,
           user: {
-            _id: 1,
+            id: 1,
             avatar: null,
           },
         }}

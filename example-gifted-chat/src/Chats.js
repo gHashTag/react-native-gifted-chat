@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { GiftedChat } from 'react-native-gifted-chat';
-import initialMessages from './messages';
-import { renderInputToolbar, renderActions, renderComposer, renderSend } from './InputToolbar';
+import React, { useState, useEffect } from 'react'
+import { GiftedChat } from 'react-native-gifted-chat'
+import initialMessages from './messages'
+import {
+  renderInputToolbar,
+  renderActions,
+  renderComposer,
+  renderSend,
+} from './InputToolbar'
 import {
   renderAvatar,
   renderBubble,
@@ -9,19 +14,19 @@ import {
   renderMessage,
   renderMessageText,
   renderCustomView,
-} from './MessageContainer';
+} from './MessageContainer'
 
 const Chats = () => {
-  const [text, setText] = useState('');
-  const [messages, setMessages] = useState([]);
+  const [text, setText] = useState('')
+  const [messages, setMessages] = useState([])
 
   useEffect(() => {
-    setMessages(initialMessages.reverse());
-  }, []);
+    setMessages(initialMessages.reverse())
+  }, [])
 
   const onSend = (newMessages = []) => {
-    setMessages((prevMessages) => GiftedChat.append(prevMessages, newMessages));
-  };
+    setMessages(prevMessages => GiftedChat.append(prevMessages, newMessages))
+  }
 
   return (
     <GiftedChat
@@ -30,7 +35,7 @@ const Chats = () => {
       onInputTextChanged={setText}
       onSend={onSend}
       user={{
-        _id: 1,
+        id: 1,
         name: 'Aaron',
         avatar: 'https://placeimg.com/150/150/any',
       }}
@@ -55,15 +60,15 @@ const Chats = () => {
       renderCustomView={renderCustomView}
       isCustomViewBottom
       messagesContainerStyle={{ backgroundColor: 'indigo' }}
-      parsePatterns={(linkStyle) => [
+      parsePatterns={linkStyle => [
         {
           pattern: /#(\w+)/,
           style: linkStyle,
-          onPress: (tag) => console.log(`Pressed on hashtag: ${tag}`),
+          onPress: tag => console.log(`Pressed on hashtag: ${tag}`),
         },
       ]}
     />
-  );
-};
+  )
+}
 
-export default Chats;
+export default Chats

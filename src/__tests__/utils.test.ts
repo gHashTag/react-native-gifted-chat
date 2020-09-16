@@ -5,16 +5,16 @@ it('should test if same day', () => {
   expect(
     isSameDay(
       {
-        _id: 1,
+        id: 1,
         text: 'test',
         createdAt: now,
-        user: { _id: 1 },
+        user: { id: 1 },
       },
       {
-        _id: 2,
+        id: 2,
         text: 'test2',
         createdAt: now,
-        user: { _id: 2 },
+        user: { id: 2 },
       },
     ),
   ).toBe(true)
@@ -22,10 +22,10 @@ it('should test if same day', () => {
 
 it('should test if same user', () => {
   const message = {
-    _id: 1,
+    id: 1,
     text: 'test',
     createdAt: new Date(),
-    user: { _id: 1 },
+    user: { id: 1 },
   }
   expect(isSameUser(message, message)).toBe(true)
 })

@@ -15,11 +15,11 @@ export default class App extends React.Component {
     this.setState({
       messages: [
         {
-          _id: 1,
+          id: 1,
           text: 'Hello developer!!!',
           createdAt: new Date(),
           user: {
-            _id: 2,
+            id: 2,
             name: 'React Native',
             avatar: 'https://placeimg.com/140/140/any',
           },
@@ -59,7 +59,7 @@ export default class App extends React.Component {
         messages={this.state.messages}
         onSend={messages => this.onSend(messages)}
         user={{
-          _id: 1,
+          id: 1,
         }}
         renderMessage={this.renderMessage}
       />

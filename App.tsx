@@ -16,16 +16,16 @@ const styles = StyleSheet.create({
 })
 
 const filterBotMessages = message =>
-  !message.system && message.user && message.user._id && message.user._id === 2
-const findStep = step => message => message._id === step
+  !message.system && message.user && message.user.id && message.user.id === 2
+const findStep = step => message => message.id === step
 
 const user = {
-  _id: 1,
+  id: 1,
   name: 'Developer',
 }
 
 const otherUser = {
-  _id: 2,
+  id: 2,
   name: 'React Native',
   avatar: 'https://facebook.github.io/react/img/logo_og.png',
 }
@@ -136,7 +136,7 @@ export default class App extends Component {
           previousState.messages as any,
           [
             {
-              _id: Math.round(Math.random() * 1000000),
+              id: Math.round(Math.random() * 1000000),
               text,
               createdAt: new Date(),
               user: otherUser,
@@ -154,7 +154,7 @@ export default class App extends Component {
       ...message,
       user,
       createdAt,
-      _id: Math.round(Math.random() * 1000000),
+      id: Math.round(Math.random() * 1000000),
     }))
     this.onSend(messagesToUpload)
   }
@@ -198,7 +198,7 @@ export default class App extends Component {
       this.onSend([
         {
           createdAt,
-          _id: Math.round(Math.random() * 1000000),
+          id: Math.round(Math.random() * 1000000),
           text: replies[0].title,
           user,
         },
@@ -207,7 +207,7 @@ export default class App extends Component {
       this.onSend([
         {
           createdAt,
-          _id: Math.round(Math.random() * 1000000),
+          id: Math.round(Math.random() * 1000000),
           text: replies.map(reply => reply.title).join(', '),
           user,
         },

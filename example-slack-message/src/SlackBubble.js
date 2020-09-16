@@ -100,7 +100,7 @@ export default class Bubble extends React.Component {
     if (this.props.renderTicks) {
       return this.props.renderTicks(currentMessage)
     }
-    if (currentMessage.user._id !== this.props.user._id) {
+    if (currentMessage.user.id !== this.props.user.id) {
       return null
     }
     if (currentMessage.sent || currentMessage.received) {
